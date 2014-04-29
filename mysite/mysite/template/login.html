@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+#{% block title %}Connexion{% endblock %}
+{% block bodyId %}loginPage{% endblock %}
+{% block content %}
+<form action="/login" method="post"> {% csrf_token %}
+    
+    {{ban.as_p}}
+    
+    <p>
+        <input type="submit" value="Connect"/>
+        <a href="??? ">Create an account</a>
+    </p>
+</form>
+{% endblock %}
