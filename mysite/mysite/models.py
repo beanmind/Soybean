@@ -7,4 +7,4 @@ class People(models.Model):
     password = models.CharField(max_length=32)
 
     def __unicode__(self):
-        return self.prenom + " " + self.nom
+        return self.name + " " + self.surname
