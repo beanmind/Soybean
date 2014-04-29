@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 DEFAULT_CONTENT_TYPE = 'application/xhtml+xml'
 
 
-#dossier ou se trouvent les templates
+# dossier ou se trouvent les templates
 import os
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
@@ -20,7 +20,6 @@ TEMPLATE_DIRS = (
 )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -47,6 +46,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'soybean'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -69,7 +69,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(PROJECT_ROOT, 'db.sqlite3'),
+        'USER':'',
+        'PASSWORD':'',
+        'HOST':'',
+        'PROT':'',
     }
 }
 
