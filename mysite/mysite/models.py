@@ -6,3 +6,5 @@ class People(models.Model):
     surname = models.Charfield(max_length=30)
     password = models.Charfield(max_length=32)
 
+    def __unicode__(self):
+        return self.prenom + " " + self.nom
