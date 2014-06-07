@@ -1,4 +1,5 @@
 from django import forms
+from mysite.models import people
 
 class LoginForm(forms.Form):
     email = forms.EmailField(label='Email')
@@ -9,7 +10,8 @@ class LoginForm(forms.Form):
         email = cleaned_data.get("email")
         password = cleaned_data.get("password")
         if email and password:
-            if password != 'sesame' or email != 'pierre@lxs.be':
+            result = people.objects.filter(password=password, email=email)
+            if len(result) != 1:
                 raise forms.ValidationError("Wrong email or password")
             
         return cleaned_data

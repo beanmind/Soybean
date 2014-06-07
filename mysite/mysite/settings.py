@@ -7,7 +7,7 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
-DEFAULT_CONTENT_TYPE = 'application/xhtml+xml'
+DEFAULT_CONTENT_TYPE = 'text/html'
 
 
 # dossier ou se trouvent les templates
@@ -46,7 +46,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'soybean'
+    'mysite'
 )
 
 MIDDLEWARE_CLASSES = (
