@@ -45,4 +45,4 @@ class ingredient(models.Model):
     quantity = models.ManyToManyField(quantities)
     use = models.ManyToManyField(recipe)
     def __unicode__(self):
-        return self.ingredient
+        return self.name
