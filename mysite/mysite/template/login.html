@@ -5,10 +5,12 @@
 <form action="/login" method="post"> {% csrf_token %}
     
     {{ban.as_p}}
-    
+    {%if error %}
+    <p class=error">{{error}}</p>
+    {% endif %}
     <p>
         <input type="submit" value="Connect"/>
-        <a href="??? ">Create an account</a>
+        <a href=register> Create an account</a>
     </p>
 </form>
 {% endblock %}

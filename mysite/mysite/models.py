@@ -5,6 +5,7 @@ class people(models.Model):
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     password = models.CharField(max_length=32)
+    email = models.EmailField()
 
     def __unicode__(self):
         return self.name + " " + self.surname
@@ -28,8 +29,7 @@ class recipe(models.Model):
     date_of_publication = models.DateField()
     description = models.TextField()
     number_people = models.IntegerField()
-    type   = models.CharField( max_length=1, choices=RECIPE_TYPE, default='M')
-    ingredients = models.ManyToManyField(ingredient)
+    type   = models.CharField( max_length=1, choices=RECIPE_TYPE, default='M')    
     
     def __unicode__(self):
         return self.title
@@ -43,6 +43,6 @@ class quantities(models.Model):
 class ingredient(models.Model):
     name = models.CharField(max_length=30)
     quantity = models.ManyToManyField(quantities)
-
+    use = models.ManyToManyField(recipe)
     def __unicode__(self):
         return self.ingredient
