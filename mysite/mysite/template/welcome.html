@@ -1,11 +1,8 @@
 
-
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Soybean</title>
-    </head>
-    <body>
-        <p> Welcome on Soybean!</p>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block title %}Accueil{% endblock %}
+{% block bodyId %}welcomePage{% endblock %}
+{% block content %}
+<p> {{logged_user.name}} {{ logged_user.surname}},
+Welcome on Soybean! </p>
+{%endblock%}
