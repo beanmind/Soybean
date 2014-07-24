@@ -8,6 +8,9 @@ from mysite.models import people
 
 
 def welcome(request):
+    print "bla"
+    print 
+    print "moi"
     if 'logged_user_id' in request.session:
         print logged_user_id
         logged_user_id = request.session['logger_user_id']
@@ -16,7 +19,7 @@ def welcome(request):
         return render(request, 'welcome.html',{'logged_user':logged_user})
     else:
         return render(request, 'login.html', {'ban':form})
-        
+           
 def login(request):
     if request.method=="POST":
         form = LoginForm(request.POST)
@@ -27,9 +30,8 @@ def login(request):
             print logged_user
             request.session['logged_user_id'] = logged_user.id
             print logged_user.id
-            print logged_user.name
-            
-            return render(request,'welcome.html', {'logged_user.name':logged_user.name})        
+            print logged_user.name            
+            return render(request, 'welcome.html',{'logged_user':logged_user}) 
     else:
         form = LoginForm()
         return render(request, 'login.html', {'ban':form})
