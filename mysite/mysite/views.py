@@ -28,8 +28,7 @@ def login(request):
             request.session['logged_user_id'] = logged_user.id
             print logged_user.id
             print logged_user.name
-            
-            return render(request,'welcome.html', {'logged_user.name':logged_user.name})        
+            return HttpResponseRedirect('/welcome')
     else:
         form = LoginForm()
         return render(request, 'login.html', {'ban':form})
