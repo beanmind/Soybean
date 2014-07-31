@@ -54,7 +54,7 @@ def addrecipe(request):
 
 def welcome(request):
     logged_user = get_logged_user_from_request(request)
-    Addedrecipe = recipe.objects.order_by("title")
+    Addedrecipe = recipe.objects.all()
     if logged_user:
         if request.method == "POST":
             print"yeah"
@@ -63,7 +63,7 @@ def welcome(request):
             print"boo"
             print Addedrecipe
             return render(request, 'welcome.html', {'logged_user': logged_user,
-                                                   'newRecipe': Addedrecipe})
+                                                   'AddedRecipe': Addedrecipe})
         else:
             return render(request, 'welcome.html',{'logged_user':logged_user})
     else:
