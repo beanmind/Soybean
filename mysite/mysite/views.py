@@ -17,26 +17,53 @@ def get_logged_user_from_request(request):
         return None
 
 
-def welcome(request):
+def addrecipe(request):
     logged_user = get_logged_user_from_request(request)
+    print"1"
     if logged_user:
+        print"2"
         if "newRecipeTitle" in request.GET and request.GET["newRecipeTitle"]:
             if "newRecipeInstructions" in request.GET and request.GET["newRecipeInstructions"]:
                #if "newRecipeIngredients" in request.GET and request.GET["newRecipeIngredients"]:
                     if "newRecipeNPeople" in request.GET and request.GET["newRecipeNPeople"]:
+                        print"3"
                         newRecipe = recipe(title=request.GET['newRecipeTitle'],
                                             author=logged_user,
                                             description=request.GET['newRecipeInstructions'],
                                            # ingredients=request.GET['newRecipeIngredients'],
                                             number_people=request.GET['newRecipeNPeople'])
                         newRecipe.save()
-                        return render(request, 'welcome.html',{'logged_user':logged_user,'newRecipe':newRecipe})
+                        Addedrecipe = recipe.objects.all()
+                        print "moi"
+                        print Addedrecipe
+                        return render(request, 'welcome.html',{'logged_user':logged_user, 'Addedrecipe': Addedrecipe})
                     else:
-                        return render(request, 'welcome.html',{'logged_user':logged_user})
+                        print"4"
+                        return render(request, 'addrecipe.html',{'logged_user':logged_user})
                #else:
                 #    return render(request, 'welcome.html',{'logged_user':logged_user})
             else:
-                return render(request, 'welcome.html',{'logged_user':logged_user})
+                print"5"
+                return render(request, 'addrecipe.html',{'logged_user':logged_user})
+        else:
+            print"6"
+            return render(request, 'addrecipe.html',{'logged_user':logged_user})
+    else:
+        print"7"
+        return render(request, 'login.html', {'ban':form})
+
+def welcome(request):
+    logged_user = get_logged_user_from_request(request)
+    Addedrecipe = recipe.objects.order_by("title")
+    if logged_user:
+        if request.method == "POST":
+            print"yeah"
+            return HttpResponseRedirect('/addrecipe')
+        elif Addedrecipe.exists():
+            print"boo"
+            print Addedrecipe
+            return render(request, 'welcome.html', {'logged_user': logged_user,
+                                                   'newRecipe': Addedrecipe})
         else:
             return render(request, 'welcome.html',{'logged_user':logged_user})
     else:
