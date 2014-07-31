@@ -14,17 +14,24 @@ class LoginForm(forms.Form):
         cleaned_data = super (LoginForm, self).clean()
         email1 = cleaned_data.get("email1")
         password1 = cleaned_data.get("password1")
+        print cleaned_data
         print password1
+        print email1
         if email1 and password1:
             result = people.objects.filter(password=password1, email=email1)
             print result
             print "non"
             if len(result) != 1:
+                print "wrong"
                 raise forms.ValidationError("Wrong email or password")
-        print cleaned_data    
+            print "nonnon"
+        print cleaned_data
         return cleaned_data
 
 class ProfileForm(forms.ModelForm):
     class Meta:
         model= people
-        
+
+#class WelcomeForm(forms.Form):
+ #   instructions = forms.CharField(label='Instructions :')
+  #  ingredients = forms.CharField(label = 'ingredients')

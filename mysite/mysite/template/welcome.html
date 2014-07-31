@@ -5,4 +5,26 @@
 {% block content %}
 <p> {{logged_user.name}} {{ logged_user.surname}},
 Welcome on Soybean! </p>
+<form action="welcome" method= "get" class= "InlineForm">
+    <p>
+    <label for="newRecipeTitleInput"> Title: </label>
+    <input type = "text" name = "newRecipeTitle" id="newRecipeTitleInput" />
+    </p>
+    <p>
+    <label for="newRecipeInstructionsInput" contenteditable="true">Instructions: </label>
+    <input type = "text" name = "newRecipeInstructions" id="newRecipeInstructionsInput" />
+    </p>
+    <p>
+    <label for="newRecipeIngredientsInput"> Ingredients: </label>
+    <input type = "text" name = "newRecipeIngredients" id="newRecipeIngredientsInput" />
+    </p>
+    <p>
+    <label for="newRecipeNPeopleInput"> Number of people: </label>
+    <input type = "text" name = "newRecipeNPeople" id="newRecipeNPeopleInput" />
+    </p>
+    <p>
+    <input type = "submit" value = "Publish" />
+    </p>
+<p> {{newRecipe}}</p>
+
 {%endblock%}
