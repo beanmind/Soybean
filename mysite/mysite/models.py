@@ -10,18 +10,18 @@ class people(models.Model):
     def __unicode__(self):
         return self.name + " " + self.surname
 
-class quantities(models.Model):
-    quantity = models.CharField(max_length=30)
-
-    def __unicode__(self):
-        return self.quantity
+#class quantities(models.Model):
+#   quantity = models.CharField(max_length=30)
+#
+#   def __unicode__(self):
+#      return self.quantity
 
 #class ingredient(models.Model):
- #   name = models.CharField(max_length=30)
-  #  quantity = models.ManyToManyField(quantities)
+#   name = models.CharField(max_length=30)
+#   quantity = models.ManyToManyField(quantities)
 
- #   def __unicode__(self):
-  #      return self.name
+#   def __unicode__(self):
+#      return self.name
 
 class recipe(models.Model):
     RECIPE_ENTREE = 'E'
@@ -39,12 +39,10 @@ class recipe(models.Model):
     )
     title = models.CharField(max_length=100)
     author = models.ForeignKey(people)
-    #date_of_publication = models.DateField()
     description = models.TextField()
     number_people = models.IntegerField()
-    type   = models.CharField( max_length=1, choices=RECIPE_TYPE, default='M')
-    #ingredients = models.ManyToManyField(ingredient)
-    #ingredients = models.TextField()
+    type = models.CharField( max_length=1, choices=RECIPE_TYPE, default='M')
+    ingredients = models.TextField()
 
     def __unicode__(self):
         return self.title

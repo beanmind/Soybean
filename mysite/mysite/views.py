@@ -24,13 +24,13 @@ def addrecipe(request):
         print"2"
         if "newRecipeTitle" in request.GET and request.GET["newRecipeTitle"]:
             if "newRecipeInstructions" in request.GET and request.GET["newRecipeInstructions"]:
-               #if "newRecipeIngredients" in request.GET and request.GET["newRecipeIngredients"]:
+                if "newRecipeIngredients" in request.GET and request.GET["newRecipeIngredients"]:
                     if "newRecipeNPeople" in request.GET and request.GET["newRecipeNPeople"]:
                         print"3"
                         newRecipe = recipe(title=request.GET['newRecipeTitle'],
                                             author=logged_user,
                                             description=request.GET['newRecipeInstructions'],
-                                           # ingredients=request.GET['newRecipeIngredients'],
+                                            ingredients=request.GET['newRecipeIngredients'],
                                             number_people=request.GET['newRecipeNPeople'])
                         newRecipe.save()
                         Addedrecipe = recipe.objects.all()
@@ -63,7 +63,7 @@ def welcome(request):
             return render(request, 'welcome.html', {'logged_user': logged_user,
                                                    'AddedRecipe': Addedrecipe})
         else:
-            return render(request, 'welcome.html',{'logged_user':logged_user})
+            return render(request, 'welcome.html',{'logged_user':logged_user, 'AddedRecipe': Addedrecipe})
     else:
         form = LoginForm()
         return render(request, 'login.html', {'ban':form})
