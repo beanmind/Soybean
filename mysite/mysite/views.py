@@ -54,27 +54,44 @@ def addrecipe(request):
 
 def welcome(request):
     logged_user = get_logged_user_from_request(request)
-    Addedrecipe = recipe.objects.all()
+    Addedrecipe = recipe.objects.order_by('title')
     if logged_user:
         if request.method == "POST":
-            print"yeah"
             return HttpResponseRedirect('/addrecipe')
         elif Addedrecipe.exists():
-            print"boo"
             print Addedrecipe
             return render(request, 'welcome.html', {'logged_user': logged_user,
                                                    'AddedRecipe': Addedrecipe})
         else:
             return render(request, 'welcome.html',{'logged_user':logged_user})
     else:
+        form = LoginForm()
         return render(request, 'login.html', {'ban':form})
-        
+
+def singlerecipe(request):
+    logged_user = get_logged_user_from_request(request)
+    Addedrecipe = recipe.objects.order_by('title')
+    if logged_user:
+        if 'RecipeToShow' in request.GET and request.GET['RecipeToShow'] != '':
+            results = recipe.objects.filter(id=request.GET['RecipeToShow'])
+            print results
+            if len(results) == 1:
+                recipe_to_show = recipe.objects.get(id=request.GET['RecipeToShow'])
+                return render(request, 'single_recipe.html',{'recipe_to_show': recipe_to_show, 'Addedrecipe': Addedrecipe})
+            else:
+                return render(request, 'single_recipe.html',{'Addedrecipe': Addedrecipe})
+        else:
+            return render(request, 'single_recipe.html',{'Addedrecipe': Addedrecipe})
+    else:
+        form = LoginForm()
+        return render(request, 'login.html', {'ban':form})
+
+
 def login(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
             user_email = form.cleaned_data['email1']
-            print "yeah"
             print user_email
             logged_user = people.objects.get(email=user_email)
             print logged_user

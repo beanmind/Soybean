@@ -1,0 +1,17 @@
+
+{% extends "base.html" %}
+{% block title %}Accueil{% endblock %}
+{% block bodyId %}welcomePage{% endblock %}
+{% block content %}
+
+<h1> hello </h1>
+<h1>{{recipe_to_show.title}}  </h1>
+    <p>
+        {{recipe_to_show.description}}
+    </p>
+    <p>
+        {{recipe_to_show.ingredients}}
+    </p>
+
+
+{%endblock%}
