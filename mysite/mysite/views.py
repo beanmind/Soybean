@@ -54,16 +54,18 @@ def addrecipe(request):
 
 def welcome(request):
     logged_user = get_logged_user_from_request(request)
-    Addedrecipe = recipe.objects.order_by('title')
+    Addedrecipe = recipe.objects.all()
+    print"ohoho"
+    print Addedrecipe
     if logged_user:
         if request.method == "POST":
             return HttpResponseRedirect('/addrecipe')
         elif Addedrecipe.exists():
             print Addedrecipe
             return render(request, 'welcome.html', {'logged_user': logged_user,
-                                                   'AddedRecipe': Addedrecipe})
+                                                   'Addedrecipe': Addedrecipe})
         else:
-            return render(request, 'welcome.html',{'logged_user':logged_user, 'AddedRecipe': Addedrecipe})
+            return render(request, 'welcome.html',{'logged_user':logged_user, 'Addedrecipe': Addedrecipe})
     else:
         form = LoginForm()
         return render(request, 'login.html', {'ban':form})
