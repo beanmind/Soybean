@@ -11,6 +11,14 @@ Welcome on Soybean! </h1>
 <form action="/welcome" method="post"> {% csrf_token %}
     <input type="submit" value="Add a new recipe"/>
 </form>
+
+<form method="post"> {% csrf_token %}
+     <a href="searchingredients">"Search for ingredients"</a>
+
+</form>
+
+
+
 <ul>
 {% for recipe in Addedrecipe %}
 
@@ -23,5 +31,8 @@ Welcome on Soybean! </h1>
 
 {%endfor%}
 </ul>
+
+
+
 
 {%endblock%}

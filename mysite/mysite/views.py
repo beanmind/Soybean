@@ -34,6 +34,7 @@ def addrecipe(request):
                                             number_people=request.GET['newRecipeNPeople'])
                         newRecipe.save()
                         Addedrecipe = recipe.objects.all()
+
                         print "moi"
                         print Addedrecipe
                         return render(request, 'welcome.html',{'logged_user':logged_user, 'Addedrecipe': Addedrecipe})
@@ -88,6 +89,38 @@ def singlerecipe(request):
         form = LoginForm()
         return render(request, 'login.html', {'ban':form})
 
+def searchingredients(request):
+   logged_user = get_logged_user_from_request(request)
+   recipe_with_ingredients = recipe.objects.all()
+   if logged_user:
+        print "moi et toi"
+        #if 'ingredientsSearch' in request.GET and request.GET['ingredientsSearch']:
+        list_ingredients = request.GET.getlist("ingredientsSearch")
+        print"hello?"
+        print list_ingredients
+        for i in list_ingredients:
+            print i
+            recipe_with_ingredients = recipe_with_ingredients.filter(ingredients__contains= i)
+            print recipe_with_ingredients
+        return render(request, 'search_ingredients.html', {'recipe_with_ingredients':recipe_with_ingredients})
+
+
+
+               # recipe_with_ingredients =
+
+
+
+               #print recipe_with_ingredients
+               #if len(recipe_with_ingredients) > 0:
+                 #  print "yeah"
+        #return render(request, 'search_ingredients.html')
+        #else:
+         #   return render(request, 'search_ingredients.html')
+          # else:
+           #    return render(request, 'search_ingredients.html')
+   else:
+       form = LoginForm()
+       return render(request, 'login.html', {'ban':form})
 
 def login(request):
     if request.method == "POST":

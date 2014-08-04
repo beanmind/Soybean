@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Accueil{% endblock %}
+{% block bodyId %}welcomePage{% endblock %}
+{% block content %}
+
+
+
+<form method= "get" class= "InlineForm">
+    <p>
+    <label for="ingredientsSearch1Input"> Ingredient 1: </label>
+    <input type = "text" name = "ingredientsSearch" id="ingredientsSearch1Input" />
+    </p>
+    <p>
+    <label for="ingredientsSearch2Input"> Ingredient 2: </label>
+    <input type = "text" name = "ingredientsSearch" id="ingredientsSearch2Input" />
+    </p>
+    <p>
+    <label for="ingredientsSearch3Input"> Ingredient 3: </label>
+    <input type = "text" name = "ingredientsSearch" id="ingredientsSearch3Input" />
+    </p>
+    <p>
+    <label for="ingredientsSearch4Input"> Ingredient 4: </label>
+    <input type = "text" name = "ingredientsSearch" id="ingredientsSearch4Input" />
+    </p>
+    <p>
+    <label for="ingredientsSearch5Input"> Ingredient 5: </label>
+    <input type = "text" name = "ingredientsSearch" id="ingredientsSearch5Input" />
+    </p>
+    <input type = "submit" value = "Submit" />
+</form>
+
+
+ <p> you could cook: </p>
+{% for recipe in recipe_with_ingredients %}
+
+    <div>
+        <form method="post"> {% csrf_token %}
+            <a href="singlerecipe?RecipeToShow={{recipe.id}}">{{recipe.title}}</a>
+
+        </form>
+    </div>
+
+{%endfor%}
+
+
+{%endblock%}
