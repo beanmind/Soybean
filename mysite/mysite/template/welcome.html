@@ -3,10 +3,9 @@
 {% block title %}Accueil{% endblock %}
 {% block bodyId %}welcomePage{% endblock %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="/static/css/welcome_style.css" />
 
-<h1> {{logged_user.name}} {{ logged_user.surname}},
-Welcome on Soybean! </h1>
+<h1 id="welcome_name"> <strong>{{logged_user.name}} {{ logged_user.surname}},
+Welcome on Soybean! </strong> </h1>
 
 <form action="/welcome" method="post"> {% csrf_token %}
     <input type="submit" value="Add a new recipe"/>
@@ -31,6 +30,7 @@ Welcome on Soybean! </h1>
 
 {%endfor%}
 </ul>
+
 
 
 

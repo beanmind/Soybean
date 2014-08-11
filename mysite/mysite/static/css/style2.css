@@ -1,13 +1,105 @@
-header {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 50px;
-    background:url('../logo/green-beans-1.jpg');
-    border-bottom: 1px solid #133783;
-    width: 100%;
+ /** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } body { line-height: 1; } ol, ul { list-style: none; } blockquote, q { quotes: none; } blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; } table { border-collapse: collapse; border-spacing: 0; }
+
+
+/* login page */
+
+html {
+    height: 100%;
 }
 
+#login_email_pass {
+    background-color: white;
+    opacity: 0.85;
+    padding: 30px;
+    font-family: 'Shadows Into Light', cursive;
+    max-width: 400px;
+    width: 100%;
+    margin:10% auto 0 auto;
+}
+
+#loginPage {
+    background:url('../logo/dish_search_ingredients.jpg');
+    background-size: cover;
+}
+
+#login_name {
+    font-size:67px;
+    color: white;
+    font-family: 'Shadows Into Light', cursive;
+    text-align: center;
+    margin-top: 3%;
+}
+
+label{
+    float: left;
+    width:50px;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 23px;
+ }
+
+#id_email1, #id_password1 {
+    margin-left: 70px;
+}
+
+#submit_login {
+    display: inline-block;
+    text-align:center;
+    margin-left: 70px;
+    padding-top:50px;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 23px;
+}
+
+#submit_login_button {
+    margin-right: 20px;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 23px;
+}
+
+#Ingr_Search_Page  {
+  background:url('../logo/dish_search_ingredients.jpg');
+    background-size: cover;
+ }
+
+.errorlist{
+    color: #C11B17;
+}
+
+/* welcome Page*/
+
+#welcomePage {
+    background:url('../logo/dish_eggplant.jpg');
+    background-size: cover;
+ }
+
+
+#welcome_name {
+    bbackground-color: white;
+    opacity: 0.85;
+    padding: 30px;
+    font-family: 'Shadows Into Light', cursive;
+    max-width: 400px;
+    width: 100%;
+    margin:10% auto 0 auto;
+
+
+}
+
+
+/*
+h1 { background-color: white;
+    position: absolute;
+    opacity: 0.7;
+    padding: 10px;
+    text-align: center;
+    font-family: Verdana, Arial, sans-serif;
+ }
+
+#login_email_pass {color: red;
+    font-family: Verdana;
+}
+
+/*
 body#loginPage, section#content  {
     position: absolute;
     top: 100px;
@@ -19,19 +111,24 @@ body#loginPage, section#content  {
     background: url(/img/cream_dust.png) repeat 0 0;
 }
 
-    
-}
+   /*
 
 form input[type="email"], form input[type="text"],
 form input[type="password"]{
     display:block;
     width: 250px;
     padding: 2px;
-    float: right;
+    float: left;
+    margin: 0 0 10px 0;
 }
 
-form input[type="submit"] {
-    margin: 0 20px 0 160px;
+    clear: both;
+    width: 150px;
+    color:darkblue;
+}
+
+/*form input[type="submit"] {
+    margin: 0 20px 0 0;
     border-style: solid;
     border-width: 1px;
     border-color: #d9dfea #0e1f5b #0e1f5b #d9dfea;
@@ -47,3 +144,10 @@ ul.errorlist {
     list-style-type: none;
     color: #d23d24;
 }
+
+
+
+#buttons {
+    clear: both;
+    padding: 0 0 0 150px;
+}*/

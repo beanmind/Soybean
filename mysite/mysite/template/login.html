@@ -2,15 +2,18 @@
 #{% block title %}Connexion{% endblock %}
 {% block bodyId %}loginPage{% endblock %}
 {% block content %}
-<form action="/login" method="post"> {% csrf_token %}
+
+<h1 id = "login_name" > Soybean, haute Cuisine pour tous </h1>
+<form id="login_email_pass" action="/login" method="post"> {% csrf_token %}
+
     
     {{ban.as_p}}
     {%if error %}
-    <p class=error">{{error}}</p>
+    <div class="error">{{error}}</div>
     {% endif %}
-    <p>
-        <input type="submit" value="Connect"/>
-        <a href=register> Create an account</a>
-    </p>
+    <div id="submit_login">
+        <input id="submit_login_button" type="submit" value="Connect"/>
+        <a  href=register> Create an account</a>
+    </div>
 </form>
 {% endblock %}
