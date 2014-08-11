@@ -4,32 +4,29 @@
 {% block bodyId %}welcomePage{% endblock %}
 {% block content %}
 
-<h1 id="welcome_name"> <strong>{{logged_user.name}} {{ logged_user.surname}},
-Welcome on Soybean! </strong> </h1>
-
-<form action="/welcome" method="post"> {% csrf_token %}
-    <input type="submit" value="Add a new recipe"/>
-</form>
-
-<form method="post"> {% csrf_token %}
-     <a href="searchingredients">"Search for ingredients"</a>
-
-</form>
+<h1 class="welcome_name"> {{logged_user.name}} {{ logged_user.surname}},
+Welcome on Soybean! </h1>
 
 
 
-<ul>
-{% for recipe in Addedrecipe %}
+<div class="welcome_single_recipe" >
+    <form action="/welcome" method="post"> {% csrf_token %}
+        <input type="submit" value="Add a new recipe"/>
+    </form>
 
-    <div>
-        <form method="post"> {% csrf_token %}
-            <a href="singlerecipe?RecipeToShow={{recipe.id}}">{{recipe.title}}</a>
+    <form method="post"> {% csrf_token %}
+        <a href="searchingredients">"Search for ingredients"</a>
+    </form>
 
-        </form>
-    </div>
+    {% for recipe in Addedrecipe %}
+        <div id="display_single_recipe">
+            <form method="post"> {% csrf_token %}
+                <a id= "welcome_box" href="singlerecipe?RecipeToShow={{recipe.id}}">{{recipe.title}}</a>
 
-{%endfor%}
-</ul>
+            </form>
+        </div>
+    {%endfor%}
+</div>
 
 
 

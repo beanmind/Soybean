@@ -73,16 +73,76 @@ label{
  }
 
 
-#welcome_name {
-    bbackground-color: white;
+.welcome_name {
+    background-color: white;
+    font-size: 65px;
     opacity: 0.85;
     padding: 30px;
     font-family: 'Shadows Into Light', cursive;
-    max-width: 400px;
+    max-width: 700px;
     width: 100%;
-    margin:10% auto 0 auto;
+    margin:5% auto 0 auto;
+    text-align: center;
+    border-radius: 6px;
+}
 
+.welcome_single_recipe {
+    background-color: white;
+    font-size: 23px;
+    opacity: 0.85;
+    padding: 30px;
+    font-family: 'Shadows Into Light', cursive;
+    max-width: 700px;
+    width: 100%;
+    margin:5% auto 0 auto;
+    text-align: center;
+    border-radius: 6px;
+}
 
+#display_single_recipe {
+    background: #7F525D;
+    margin: 2% auto 2% auto;
+    width:200px;
+    height: 130px;
+    line-height: 130px;
+    display: inline-block;
+    font-size: 40px;
+    border: 2px solid;
+    position: relative;
+}
+
+#display_single_recipe:hover {
+    background-color: #7D0541;
+}
+
+#welcome_box {
+    text-decoration: none;
+    color: white;
+}
+
+/* Add recipe */
+
+#newrecipe {
+    background:url('../logo/dish_asperges.jpg');
+    background-size: cover;
+}
+#add_recipe_div {
+    background-color: white;
+    font-size: 23px;
+    opacity: 0.85;
+    padding: 30px;
+    font-family: 'Shadows Into Light', cursive;
+    max-width: 700px;
+    width: 100%;
+    margin:5% auto 0 auto;
+    border-radius: 6px;
+
+}
+
+.label_newrecipe {
+    clear:both;
+    width:200px;
+    float: left;
 }
 
 
