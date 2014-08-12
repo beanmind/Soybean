@@ -149,7 +149,7 @@ def register(request):
             form.save(commit=True)
             return HttpResponseRedirect('/login')
         else:
-            return render(request, 'login.html', {'ban':form})
+            return render(request, 'user_profile.html', {'ban':form})
     else:
         form = ProfileForm()
         return render(request, 'user_profile.html', {'ban':form})
