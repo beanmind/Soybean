@@ -1,17 +1,22 @@
 
 {% extends "base.html" %}
 {% block title %}Accueil{% endblock %}
-{% block bodyId %}welcomePage{% endblock %}
+{% block bodyId %}singleRecipePage{% endblock %}
 {% block content %}
 
-<h1>{{recipe_to_show.title}} , for {{recipe_to_show.number_people}} people  </h1>
+<h1 class="welcome_name">{{recipe_to_show.title}} , for {{recipe_to_show.number_people}} people  </h1>
 
-    <p>
+    <div class="add_recipe_div">
+        <p>
         {{recipe_to_show.description}}
-    </p>
-    <p>
-        {{recipe_to_show.ingredients}}
-    </p>
+        </p>
+
+        <form name= "RecipeName" method= "get" class= "InlineForm">
+            <div class="buttons">
+                <input type="submit" VALUE="Back" onClick="history.go(-1);return true;">
+            </div>
+        </form>
+    </div>
 
 
 {%endblock%}

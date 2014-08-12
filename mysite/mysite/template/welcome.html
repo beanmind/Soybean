@@ -21,7 +21,7 @@ Welcome on Soybean! </h1>
     {% for recipe in Addedrecipe %}
         <div id="display_single_recipe">
             <form method="post"> {% csrf_token %}
-                <a id= "welcome_box" href="singlerecipe?RecipeToShow={{recipe.id}}">{{recipe.title}}</a>
+                <a class= "welcome_box" href="singlerecipe?RecipeToShow={{recipe.id}}">{{recipe.title}}</a>
 
             </form>
         </div>

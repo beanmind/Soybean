@@ -152,3 +152,4 @@ def register(request):
     else:
         form = ProfileForm()
         return render(request, 'user_profile.html', {'ban':form})
+

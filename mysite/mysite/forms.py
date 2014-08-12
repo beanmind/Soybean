@@ -31,6 +31,7 @@ class LoginForm(forms.Form):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model= people
+        fields = [ "name", "surname", "password", "email"]
 
 #class WelcomeForm(forms.Form):
  #   instructions = forms.CharField(label='Instructions :')

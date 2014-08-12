@@ -4,7 +4,7 @@
 {% block content %}
 
 <h1 class="welcome_name"> Add a new recipe </h1>
-<div id="add_recipe_div" >
+<div class="add_recipe_div" >
     <form name= "RecipeName" method= "get" class= "InlineForm">
 
         <label class="label_newrecipe" for="newRecipeTitleInput"> Title: </label>
@@ -17,8 +17,8 @@
         <input type = "text" name = "newRecipeIngredients" id="newRecipeIngredientsInput" />
 
         <label  class="label_newrecipe" for="newRecipeNPeopleInput"> Number of people: </label>
-        <input type = "text" name = "newRecipeNPeople" id="newRecipeNPeopleInput" />
-        <div id="buttons">
+        <input type = "number" name = "newRecipeNPeople" id="newRecipeNPeopleInput" min="1" max="100" value="1"/>
+        <div class="buttons">
             <input type = "submit" value = "Publish" />
 
             <input type="submit" VALUE="Back" onClick="history.go(-1);return true;">
