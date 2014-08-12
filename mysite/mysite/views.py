@@ -123,7 +123,7 @@ def searchingredients(request):
        return render(request, 'login.html', {'ban':form})
 
 def login(request):
-    if request.method == "POST":
+    if "submit_login_button" in request.POST:
         form = LoginForm(request.POST)
         if form.is_valid():
             user_email = form.cleaned_data['email1']
@@ -136,7 +136,8 @@ def login(request):
             return HttpResponseRedirect('/welcome')
         else:
             return render(request, 'login.html', {'ban':form})
-
+    elif "create_account_login_button" in request.POST:
+        return HttpResponseRedirect('/register')
     else:
         form = LoginForm()
         return render(request, 'login.html', {'ban':form})
