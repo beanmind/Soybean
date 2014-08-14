@@ -5,7 +5,7 @@
 
 <h1 class="welcome_name"> Add a new recipe </h1>
 <div class="add_recipe_div" >
-    <form name= "RecipeName" method= "get" class= "InlineForm">
+    <form name= "RecipeName" method= "post" class= "InlineForm"> {% csrf_token %}
 
         <label class="label_newrecipe" for="newRecipeTitleInput"> Title: </label>
         <input type = "text" name = "newRecipeTitle" id="newRecipeTitleInput" />
@@ -21,7 +21,7 @@
         <div class="buttons">
             <input type = "submit" value = "Publish" />
 
-            <input type="submit" VALUE="Back" onClick="history.go(-1);return true;">
+            <input type="submit" name= "back_button_addrecipe" value="Back to Homepage"/>
         </div>
     </form>
 

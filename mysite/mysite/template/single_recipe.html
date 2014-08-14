@@ -11,9 +11,9 @@
         {{recipe_to_show.description}}
         </p>
 
-        <form name= "RecipeName" method= "get" class= "InlineForm">
+        <form name= "RecipeName" method= "post" class= "InlineForm"> {% csrf_token %}
             <div class="buttons">
-                <input type="submit" VALUE="Back" onClick="history.go(-1);return true;">
+                <input type="submit" name= "back_button_singlerecipe" value="Back to Homepage"/>
             </div>
         </form>
     </div>

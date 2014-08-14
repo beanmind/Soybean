@@ -19,19 +19,21 @@ def get_logged_user_from_request(request):
 
 def addrecipe(request):
     logged_user = get_logged_user_from_request(request)
-    print"1"
+    Addedrecipe = recipe.objects.all()
+
     if logged_user:
-        print"2"
-        if "newRecipeTitle" in request.GET and request.GET["newRecipeTitle"]:
-            if "newRecipeInstructions" in request.GET and request.GET["newRecipeInstructions"]:
-                if "newRecipeIngredients" in request.GET and request.GET["newRecipeIngredients"]:
-                    if "newRecipeNPeople" in request.GET and request.GET["newRecipeNPeople"]:
+        if "back_button_addrecipe" in request.POST:
+            return render(request, 'welcome.html',{'logged_user':logged_user, 'Addedrecipe': Addedrecipe})
+        elif "newRecipeTitle" in request.POST and request.POST["newRecipeTitle"]:
+            if "newRecipeInstructions" in request.POST and request.POST["newRecipeInstructions"]:
+                if "newRecipeIngredients" in request.POST and request.POST["newRecipeIngredients"]:
+                    if "newRecipeNPeople" in request.POST and request.POST["newRecipeNPeople"]:
                         print"3"
-                        newRecipe = recipe(title=request.GET['newRecipeTitle'],
+                        newRecipe = recipe(title=request.POST['newRecipeTitle'],
                                             author=logged_user,
-                                            description=request.GET['newRecipeInstructions'],
-                                            ingredients=request.GET['newRecipeIngredients'],
-                                            number_people=request.GET['newRecipeNPeople'])
+                                            description=request.POST['newRecipeInstructions'],
+                                            ingredients=request.POST['newRecipeIngredients'],
+                                            number_people=request.POST['newRecipeNPeople'])
                         newRecipe.save()
                         Addedrecipe = recipe.objects.all()
 
@@ -41,8 +43,8 @@ def addrecipe(request):
                     else:
                         print"4"
                         return render(request, 'addrecipe.html',{'logged_user':logged_user})
-               #else:
-                #    return render(request, 'welcome.html',{'logged_user':logged_user})
+                else:
+                    return render(request, 'welcome.html',{'logged_user':logged_user})
             else:
                 print"5"
                 return render(request, 'addrecipe.html',{'logged_user':logged_user})
@@ -52,6 +54,7 @@ def addrecipe(request):
     else:
         print"7"
         return render(request, 'login.html', {'ban':form})
+
 
 def welcome(request):
     logged_user = get_logged_user_from_request(request)
@@ -75,11 +78,13 @@ def singlerecipe(request):
     logged_user = get_logged_user_from_request(request)
     Addedrecipe = recipe.objects.order_by('title')
     if logged_user:
-        if 'RecipeToShow' in request.GET and request.GET['RecipeToShow'] != '':
-            results = recipe.objects.filter(id=request.GET['RecipeToShow'])
+        if "back_button_singlerecipe" in request.POST:
+            return render(request, 'welcome.html',{'logged_user':logged_user, 'Addedrecipe': Addedrecipe})
+        elif 'RecipeToShow' in request.POST and request.POST['RecipeToShow'] != '':
+            results = recipe.objects.filter(id=request.POST['RecipeToShow'])
             print results
             if len(results) == 1:
-                recipe_to_show = recipe.objects.get(id=request.GET['RecipeToShow'])
+                recipe_to_show = recipe.objects.get(id=request.POST['RecipeToShow'])
                 return render(request, 'single_recipe.html',{'recipe_to_show': recipe_to_show, 'Addedrecipe': Addedrecipe})
             else:
                 return render(request, 'single_recipe.html',{'Addedrecipe': Addedrecipe})
@@ -90,9 +95,13 @@ def singlerecipe(request):
         return render(request, 'login.html', {'ban':form})
 
 def searchingredients(request):
-   logged_user = get_logged_user_from_request(request)
-   recipe_with_ingredients = recipe.objects.all()
-   if logged_user:
+
+    logged_user = get_logged_user_from_request(request)
+    recipe_with_ingredients = recipe.objects.all()
+    Addedrecipe = recipe.objects.order_by('title')
+    if logged_user:
+        if "back_button_searchingingr" in request.POST:
+            return render(request, 'welcome.html',{'logged_user':logged_user, 'Addedrecipe': Addedrecipe})
         print "moi et toi"
         #if 'ingredientsSearch' in request.GET and request.GET['ingredientsSearch']:
         list_ingredients = request.GET.getlist("ingredientsSearch")
@@ -118,9 +127,9 @@ def searchingredients(request):
          #   return render(request, 'search_ingredients.html')
           # else:
            #    return render(request, 'search_ingredients.html')
-   else:
-       form = LoginForm()
-       return render(request, 'login.html', {'ban':form})
+    else:
+        form = LoginForm()
+        return render(request, 'login.html', {'ban':form})
 
 def login(request):
     if "submit_login_button" in request.POST:
@@ -143,8 +152,10 @@ def login(request):
         return render(request, 'login.html', {'ban':form})
 
 def register(request):
-    if len(request.GET)>0:
-        form=ProfileForm(request.GET)
+    if "back_button_register" in request.POST:
+        return HttpResponseRedirect('/login')
+    elif len(request.POST)>0:
+        form=ProfileForm(request.POST)
         if form.is_valid():
             form.save(commit=True)
             return HttpResponseRedirect('/login')
