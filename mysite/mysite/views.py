@@ -96,6 +96,7 @@ def singlerecipe(request):
 
 def searchingredients(request):
 
+
     logged_user = get_logged_user_from_request(request)
     recipe_with_ingredients = recipe.objects.all()
     Addedrecipe = recipe.objects.order_by('title')
@@ -104,17 +105,23 @@ def searchingredients(request):
             return render(request, 'welcome.html',{'logged_user':logged_user, 'Addedrecipe': Addedrecipe})
         print "moi et toi"
         #if 'ingredientsSearch' in request.GET and request.GET['ingredientsSearch']:
-        list_ingredients = request.GET.getlist("ingredientsSearch")
+        list_ingredients = filter(lambda item: len(item.strip()) > 0,request.GET.getlist("ingredientsSearch"))
+        print recipe_with_ingredients
         print"hello?"
         print list_ingredients
-        for i in list_ingredients:
-            print i
-            recipe_with_ingredients = recipe_with_ingredients.filter(ingredients__contains= i)
-            print recipe_with_ingredients
+        if list_ingredients == []:
+            print "empty"
+            return render(request, 'search_ingredients.html', {'recipe_with_ingredients':[]})
+        else:
+            for i in list_ingredients:
+                print i
+                recipe_with_ingredients = recipe_with_ingredients.filter(ingredients__contains= i)
+                print recipe_with_ingredients
             return render(request, 'search_ingredients.html', {'recipe_with_ingredients':recipe_with_ingredients})
 
-        else:
-            return render(request, 'search_ingredients.html',{'Addedrecipe': Addedrecipe})
+
+        #else:
+         #   return render(request, 'search_ingredients.html',{'Addedrecipe': Addedrecipe})
               # recipe_with_ingredients =
 
 
