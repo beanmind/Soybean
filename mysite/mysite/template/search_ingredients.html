@@ -3,44 +3,47 @@
 {% block bodyId %}Ingr_Search_Page{% endblock %}
 {% block content %}
 
+<h1 class="welcome_name"> Search for a specific recipe containing those ingredients: </h1>
+<div class="add_recipe_div" >
+
+    <form method= "get" class= "InlineForm">
+        <label for="ingredientsSearch1Input"> Ingredient 1: </label>
+        <input type = "text" name = "ingredientsSearch" id="ingredientsSearch1Input" />
+
+        <label for="ingredientsSearch2Input"> Ingredient 2: </label>
+        <input type = "text" name = "ingredientsSearch" id="ingredientsSearch2Input" />
+
+        <label for="ingredientsSearch3Input"> Ingredient 3: </label>
+        <input type = "text" name = "ingredientsSearch" id="ingredientsSearch3Input" />
+
+        <label for="ingredientsSearch4Input"> Ingredient 4: </label>
+        <input type = "text" name = "ingredientsSearch" id="ingredientsSearch4Input" />
+
+        <label for="ingredientsSearch5Input"> Ingredient 5: </label>
+        <input type = "text" name = "ingredientsSearch" id="ingredientsSearch5Input" />
+
+        <input type = "submit" value = "Submit" />
+
+    </form>
 
 
-<form method= "get" class= "InlineForm">
-    <p>
-    <label for="ingredientsSearch1Input"> Ingredient 1: </label>
-    <input type = "text" name = "ingredientsSearch" id="ingredientsSearch1Input" />
-    </p>
-    <p>
-    <label for="ingredientsSearch2Input"> Ingredient 2: </label>
-    <input type = "text" name = "ingredientsSearch" id="ingredientsSearch2Input" />
-    </p>
-    <p>
-    <label for="ingredientsSearch3Input"> Ingredient 3: </label>
-    <input type = "text" name = "ingredientsSearch" id="ingredientsSearch3Input" />
-    </p>
-    <p>
-    <label for="ingredientsSearch4Input"> Ingredient 4: </label>
-    <input type = "text" name = "ingredientsSearch" id="ingredientsSearch4Input" />
-    </p>
-    <p>
-    <label for="ingredientsSearch5Input"> Ingredient 5: </label>
-    <input type = "text" name = "ingredientsSearch" id="ingredientsSearch5Input" />
-    </p>
-    <input type = "submit" value = "Submit" />
-</form>
+    <form name= "RecipeName" method= "post" class= "InlineForm"> {% csrf_token %}
+        <input type="submit" name= "back_button_searchingingr" value="Back to Homepage"/>
+    </form>
 
 
- <p> you could cook: </p>
-{% for recipe in recipe_with_ingredients %}
 
-    <div>
-        <form method="post"> {% csrf_token %}
-            <a href="singlerecipe?RecipeToShow={{recipe.id}}">{{recipe.title}}</a>
+    <div id="recipe_diplayed">
+        <p id="offer_cooking"> You could cook: </p>
 
-        </form>
+        {% for recipe in recipe_with_ingredients %}
+            <div  class="display_single_recipe">
+                <form method="post"> {% csrf_token %}
+                    <a class= "welcome_box" href="singlerecipe?RecipeToShow={{recipe.id}}">{{recipe.title}}</a>
+                </form>
+            </div>
+        {%endfor%}
+
     </div>
-
-{%endfor%}
-
 
 {%endblock%}

@@ -80,11 +80,11 @@ def singlerecipe(request):
     if logged_user:
         if "back_button_singlerecipe" in request.POST:
             return render(request, 'welcome.html',{'logged_user':logged_user, 'Addedrecipe': Addedrecipe})
-        elif 'RecipeToShow' in request.POST and request.POST['RecipeToShow'] != '':
-            results = recipe.objects.filter(id=request.POST['RecipeToShow'])
+        elif 'RecipeToShow' in request.GET and request.GET['RecipeToShow'] != '':
+            results = recipe.objects.filter(id=request.GET['RecipeToShow'])
             print results
             if len(results) == 1:
-                recipe_to_show = recipe.objects.get(id=request.POST['RecipeToShow'])
+                recipe_to_show = recipe.objects.get(id=request.GET['RecipeToShow'])
                 return render(request, 'single_recipe.html',{'recipe_to_show': recipe_to_show, 'Addedrecipe': Addedrecipe})
             else:
                 return render(request, 'single_recipe.html',{'Addedrecipe': Addedrecipe})
@@ -111,11 +111,11 @@ def searchingredients(request):
             print i
             recipe_with_ingredients = recipe_with_ingredients.filter(ingredients__contains= i)
             print recipe_with_ingredients
-        return render(request, 'search_ingredients.html', {'recipe_with_ingredients':recipe_with_ingredients})
+            return render(request, 'search_ingredients.html', {'recipe_with_ingredients':recipe_with_ingredients})
 
-
-
-               # recipe_with_ingredients =
+        else:
+            return render(request, 'search_ingredients.html',{'Addedrecipe': Addedrecipe})
+              # recipe_with_ingredients =
 
 
 

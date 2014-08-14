@@ -58,10 +58,6 @@ label{
     font-size: 23px;
 }
 
-#Ingr_Search_Page  {
-  background:url('../logo/dish_search_ingredients.jpg');
-    background-size: cover;
- }
 
 .errorlist{
     color: #C11B17;
@@ -106,7 +102,7 @@ label{
     border-radius: 6px;
 }
 
-#display_single_recipe {
+.display_single_recipe {
     background: #7F525D;
     margin: 2% auto 2% auto;
     width:200px;
@@ -198,7 +194,7 @@ form input[type="submit"]:hover{
     background-size: cover;
 }
 
-.add_recipe_div {
+.add_recipe_div,{
     background-color: white;
     font-size: 23px;
     opacity: 0.85;
@@ -210,6 +206,29 @@ form input[type="submit"]:hover{
     margin: 5% auto 0 auto;
     border-radius: 6px;
 }
+
+/*searching for ingredients*/
+
+#Ingr_Search_Page  {
+  background:url('../logo/dish_search_ingredients.jpg');
+    background-size: cover;
+ }
+
+#recipe_diplayed {
+    background-color: white;
+    font-size: 23px;
+    opacity: 0.85;
+    padding: 30px;
+    font-family: 'Shadows Into Light', cursive;
+    max-width: 700px;
+    width: 100%;
+    margin:15% auto 0 0;
+    text-align: center;
+    border-radius: 6px;
+}
+
+
+
 /*
 h1 { background-color: white;
     position: absolute;
