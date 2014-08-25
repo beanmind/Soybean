@@ -1,14 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class people(models.Model):
-    identifier = models.CharField(max_length=10)
-    name = models.CharField(max_length=30)
-    surname = models.CharField(max_length=30)
-    password = models.CharField(max_length=32)
-    email = models.EmailField()
+    user=models.OneToOneField(User)
 
     def __unicode__(self):
-        return self.name + " " + self.surname
+        return self.user.first_name + " " + self.user.last_name
 
 #class quantities(models.Model):
 #   quantity = models.CharField(max_length=30)
@@ -38,7 +35,7 @@ class recipe(models.Model):
         (RECIPE_OTHER, 'Other'),
     )
     title = models.CharField(max_length=100)
-    author = models.ForeignKey(people)
+  #  author = models.ForeignKey(people, default=None)
     description = models.TextField()
     number_people = models.IntegerField()
     type = models.CharField( max_length=1, choices=RECIPE_TYPE, default='M')

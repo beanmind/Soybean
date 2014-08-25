@@ -5,9 +5,10 @@
 
 <h1 class="welcome_name"> Add a new recipe </h1>
 <div class="add_recipe_div" >
-    <form name= "RecipeName" method= "post" class= "InlineForm"> {% csrf_token %}
+    <form method="post"> {% csrf_token %}
+        {{ban.as_p}}
 
-        <label class="label_newrecipe" for="newRecipeTitleInput"> Title: </label>
+<!--        <label class="label_newrecipe" for="newRecipeTitleInput"> Title: </label>
         <input type = "text" name = "newRecipeTitle" id="newRecipeTitleInput" />
 
         <label  class="label_newrecipe" for="newRecipeInstructionsInput" contenteditable="true">Instructions: </label>
@@ -22,6 +23,10 @@
             <input type = "submit" value = "Publish" />
 
             <input type="submit" name= "back_button_addrecipe" value="Back to Homepage"/>
+-->
+        <div id="submit_login">
+            <input type = "submit" value = "Publish" />
+            <a href= '{% url "welcome"%}'>Back to Homepage </a>
         </div>
     </form>
 

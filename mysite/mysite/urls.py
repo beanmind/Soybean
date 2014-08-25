@@ -1,17 +1,18 @@
 
-from django.conf.urls import patterns, include
-from views import welcome,login, register, addrecipe, singlerecipe, searchingredients
+from django.conf.urls import patterns, include, url
+from views import welcome,userlogin, register, addrecipe, singlerecipe, searchingredients, logout
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    ('^welcome$', welcome),
-    ('^addrecipe$', addrecipe),
-    ('^login$', login),
-    ('^$', login),
-    ('^register$', register),
-    ('^singlerecipe$', singlerecipe),
-    ('^searchingredients$', searchingredients),
+    url('^welcome$', welcome, name='welcome'),
+    url('^addrecipe$', addrecipe, name='addrecipe'),
+    url('^login$', userlogin, name='userlogin'),
+    url('^$', userlogin, name='userlogin'),
+    url('^register$', register, name='register'),
+    url('^singlerecipe$', singlerecipe, name='singlerecipe'),
+    url('^searchingredients$', searchingredients, name='searchingredients'),
+    url('^logout$', logout, name='logout'),
     ('^admin/', include(admin.site.urls))
 )
 

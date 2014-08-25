@@ -6,14 +6,13 @@
 <h1 class="welcome_name" > Soybean, haute Cuisine </h1>
 <form id="login_email_pass" action="/login" method="post"> {% csrf_token %}
 
-    
     {{ban.as_p}}
-    {%if error %}
-    <div class="error">{{error}}</div>
-    {% endif %}
+
+
     <div id="submit_login">
         <input id="submit_login_button1" name="submit_login_button" type="submit" value="Connect"/>
-        <input id="submit_login_button2" name="create_account_login_button" type="submit" value="Create an account" />
+        <a href= '{% url "register"%}'>Create an account </a>
     </div>
 </form>
 {% endblock %}
+

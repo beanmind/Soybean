@@ -4,7 +4,7 @@
 {% block bodyId %}welcomePage{% endblock %}
 {% block content %}
 
-<h1 class="welcome_name"> {{logged_user.name}} {{ logged_user.surname}},
+<h1 class="welcome_name"> {{user.first_name}} {{user.last_name}},
 Welcome on Soybean! </h1>
 
 
@@ -12,10 +12,12 @@ Welcome on Soybean! </h1>
 <div class="welcome_single_recipe" >
     <form action="/welcome" method="post"> {% csrf_token %}
         <input type="submit" value="Add a new recipe"/>
-    </form>
 
-    <form method="post"> {% csrf_token %}
-        <a href="searchingredients">"Search for ingredients"</a>
+        <a href="searchingredients">"Search for ingredients"</a> <br>
+
+
+        <a href="/logout">logout</a>
+
     </form>
 
     {% for recipe in Addedrecipe %}
