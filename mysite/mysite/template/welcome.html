@@ -11,13 +11,15 @@ Welcome on Soybean! </h1>
 
 <div class="welcome_single_recipe" >
     <form action="/welcome" method="post"> {% csrf_token %}
-        <input type="submit" value="Add a new recipe"/>
-
-        <a href="searchingredients">"Search for ingredients"</a> <br>
-
-
-        <a href="/logout">logout</a>
-
+        <div class = "buttons_move">
+            <a class= "welcome_box" href='{% url "addrecipe" %}' >Add a recipe</a>
+        </div>
+        <div class = "buttons_move">
+            <a class= "welcome_box" href='{% url "searchingredients" %}'>Search for ingredients</a>
+        </div>
+        <div class = "buttons_move">
+            <a class= "welcome_box" href='{% url "logout" %}'>logout</a>
+        </div>
     </form>
 
     {% for recipe in Addedrecipe %}
@@ -29,9 +31,5 @@ Welcome on Soybean! </h1>
         </div>
     {%endfor%}
 </div>
-
-
-
-
 
 {%endblock%}

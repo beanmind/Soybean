@@ -7,19 +7,6 @@ class people(models.Model):
     def __unicode__(self):
         return self.user.first_name + " " + self.user.last_name
 
-#class quantities(models.Model):
-#   quantity = models.CharField(max_length=30)
-#
-#   def __unicode__(self):
-#      return self.quantity
-
-#class ingredient(models.Model):
-#   name = models.CharField(max_length=30)
-#   quantity = models.ManyToManyField(quantities)
-
-#   def __unicode__(self):
-#      return self.name
-
 class recipe(models.Model):
     RECIPE_ENTREE = 'E'
     RECIPE_MAIN = 'M'
@@ -35,7 +22,6 @@ class recipe(models.Model):
         (RECIPE_OTHER, 'Other'),
     )
     title = models.CharField(max_length=100)
-  #  author = models.ForeignKey(people, default=None)
     description = models.TextField()
     number_people = models.IntegerField()
     type = models.CharField( max_length=1, choices=RECIPE_TYPE, default='M')
@@ -43,4 +29,3 @@ class recipe(models.Model):
 
     def __unicode__(self):
         return self.title
-        

@@ -4,31 +4,17 @@
 {% block content %}
 
 <h1 class="welcome_name"> Add a new recipe </h1>
+
 <div class="add_recipe_div" >
-    <form method="post"> {% csrf_token %}
-        {{ban.as_p}}
+       <form method="post"> {% csrf_token %}
+        <div>
+            {{ban.as_p}}
+        </div>
+        <div class = "add_recipe_buttons_move">
+            <input class="welcome_box_add_recipe" type = "submit" value = "Publish" />
 
-<!--        <label class="label_newrecipe" for="newRecipeTitleInput"> Title: </label>
-        <input type = "text" name = "newRecipeTitle" id="newRecipeTitleInput" />
-
-        <label  class="label_newrecipe" for="newRecipeInstructionsInput" contenteditable="true">Instructions: </label>
-        <textarea type = "text" name = "newRecipeInstructions" id="newRecipeInstructionsInput" rows="7"  ></textarea>
-
-        <label  class="label_newrecipe" for="newRecipeIngredientsInput"> Ingredients: </label>
-        <input type = "text" name = "newRecipeIngredients" id="newRecipeIngredientsInput" />
-
-        <label  class="label_newrecipe" for="newRecipeNPeopleInput"> Number of people: </label>
-        <input type = "number" name = "newRecipeNPeople" id="newRecipeNPeopleInput" min="1" max="100" value="1"/>
-        <div class="buttons">
-            <input type = "submit" value = "Publish" />
-
-            <input type="submit" name= "back_button_addrecipe" value="Back to Homepage"/>
--->
-        <div id="submit_login">
-            <input type = "submit" value = "Publish" />
-            <a href= '{% url "welcome"%}'>Back to Homepage </a>
+            <a class="welcome_box_add_recipe" href= '{% url "welcome"%}'>Back to Homepage</a>
         </div>
     </form>
-
 </div>
 {%endblock%}

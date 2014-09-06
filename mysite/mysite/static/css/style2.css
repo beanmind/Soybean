@@ -74,6 +74,23 @@ label{
     background:url('../logo/dish_eggplant.jpg');
     background-size: cover;
  }
+.buttons_move {
+
+    background: #800080;
+    margin: 2% auto 2% auto;
+    width:200px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    font-size: 23px;
+    border: 2px solid;
+    border-radius: 6px;
+}
+
+
+.buttons_move:hover {
+    background:mediumpurple;
+}
 
 
 .welcome_name {
@@ -88,6 +105,7 @@ label{
     text-align: center;
     border-radius: 6px;
 }
+
 
 .welcome_single_recipe {
     background-color: white;
@@ -137,7 +155,7 @@ label{
     font-family: 'Shadows Into Light', cursive;
     max-width: 700px;
     width: 100%;
-    height: 500px;
+    height: 550px;
     margin:5% auto 0 auto;
     border-radius: 6px;
 
@@ -156,15 +174,21 @@ form input[type="text"], form input[type="number"], form input[type="email"], fo
     padding: 0 20px 0 0;
     margin: 0 0 20px 0;
 }
+form p{
+    clear:both;
+}
 
-.buttons {
-    clear: both;
-    padding: 0 0 0 150px;
-    margin: 0 0 20px 0;
+
+.add_recipe_buttons_move {
+    float:left;
+    clear:both;
+    margin: auto 10% auto 25%;
+
+
 
 }
 
-form input[type="submit"],#create_account_button {
+#create_account_button, {
     font-family: 'Shadows Into Light', cursive;
     background-color:#347235;
     color:white;
@@ -172,9 +196,28 @@ form input[type="submit"],#create_account_button {
     width: 200px;
 }
 
-form input[type="submit"]:hover{
-    background-color:#4E9258;
+
+
+.welcome_box_add_recipe {
+    text-decoration: none;
+    color: white;
+    background: #800080;
+    border:0px;
+    width:200px;
+    height: 50px;
+    line-height: 40px;
+    display: inline-block;
+    font-size: 23px;
+    border-radius: 6px;
+    font-family: 'Shadows Into Light', cursive;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+
 }
+
 
 /* single recipe*/
 
@@ -229,67 +272,9 @@ form input[type="submit"]:hover{
     border-radius: 6px;
 }
 
+/* logout page */
 
-
-/*
-h1 { background-color: white;
-    position: absolute;
-    opacity: 0.7;
-    padding: 10px;
-    text-align: center;
-    font-family: Verdana, Arial, sans-serif;
- }
-
-#login_email_pass {color: red;
-    font-family: Verdana;
+#logoutPage {
+    background:url('../logo/dish_search_ingredients.jpg');
+    background-size: cover;
 }
-
-/*
-body#loginPage, section#content  {
-    position: absolute;
-    top: 100px;
-    left: 10%;
-    width: 500px;
-    margin: 0 0 0 0px;
-    padding:0;
-    body {
-    background: url(/img/cream_dust.png) repeat 0 0;
-}
-
-   /*
-
-form input[type="email"], form input[type="text"],
-form input[type="password"]{
-    display:block;
-    width: 250px;
-    padding: 2px;
-    float: left;
-    margin: 0 0 10px 0;
-}
-
-    clear: both;
-    width: 150px;
-    color:darkblue;
-}
-
-/*form input[type="submit"] {
-    margin: 0 20px 0 0;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #d9dfea #0e1f5b #0e1f5b #d9dfea;
-    background-color: #3b5998;
-    color: #FFFFFF;
-    padding: 2px 15px 3px 15px;
-    text-align: center;
-}
-
-ul.errorlist {
-    margin-left: 160px;
-    padding: 0;
-    list-style-type: none;
-    color: #d23d24;
-}
-
-
-
-*/

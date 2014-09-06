@@ -12,11 +12,11 @@
         {{recipe_to_show.description}}
         </p>
 
-        <form name= "RecipeName" method= "post" class= "InlineForm"> {% csrf_token %}
+
             <div class="buttons">
-                <input type="submit" name= "back_button_singlerecipe" value="Back to Homepage"/>
+                <a href= '{% url "welcome"%}'>Back to Homepage </a>
             </div>
-        </form>
+
     </div>
 
 

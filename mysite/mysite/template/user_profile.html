@@ -9,7 +9,7 @@
     <form action="register" method="post"> {% csrf_token %}
         {{ban.as_p}}
         <input type="submit" name= "create_account_button" value="Create"/>
-        <input type="submit" name= "back_button_register" value="Back to Homepage"/>
+        <a href= '{% url "welcome"%}'>Back to Homepage </a>
     </form>
 </div>
 {% endblock %}

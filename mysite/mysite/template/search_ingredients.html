@@ -21,22 +21,21 @@
 
         <label for="ingredientsSearch5Input"> Ingredient 5: </label>
         <input type = "text" name = "ingredientsSearch" id="ingredientsSearch5Input" />
-
-        <input type = "submit" value = "Submit" />
-
+        <div class = "add_recipe_buttons_move">
+            <input class="welcome_box_add_recipe" type = "submit" value = "Submit" />
+            <a class="welcome_box_add_recipe" href= '{% url "welcome"%}'>Back to Homepage </a>
+        </div>
     </form>
 
 
-    <form name= "RecipeName" method= "post" class= "InlineForm"> {% csrf_token %}
-        <input type="submit" name= "back_button_searchingingr" value="Back to Homepage"/>
-    </form>
 
 
 </div>
     <div id="recipe_diplayed">
-        <p id="offer_cooking"> You could cook: </p>
+
 
         {% for recipe in recipe_with_ingredients %}
+            <p id="offer_cooking"> You could cook: </p>
             <div  class="display_single_recipe">
                 <form method="post"> {% csrf_token %}
                     <a class= "welcome_box" href="singlerecipe?RecipeToShow={{recipe.id}}">{{recipe.title}}</a>
