@@ -5,11 +5,16 @@
 
 <h1 class="welcome_name">Creation of an account</h1>
 
-<div class="add_recipe_div" >
+<div class="ingredients_div" >
     <form action="register" method="post"> {% csrf_token %}
-        {{ban.as_p}}
-        <input type="submit" name= "create_account_button" value="Create"/>
-        <a href= '{% url "welcome"%}'>Back to Homepage </a>
+        <div>
+            {{ban.as_p}}
+        </div>
+
+        <div class = "add_recipe_buttons_move">
+            <input class="welcome_box_add_recipe" type="submit" name= "create_account_button" value="Create"/>
+            <a href= '{% url "welcome"%}'>Back to Homepage </a>
+        </div>
     </form>
 </div>
 {% endblock %}

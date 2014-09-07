@@ -6,14 +6,13 @@
 <h1 class="welcome_name"> Add a new recipe </h1>
 
 <div class="add_recipe_div" >
-       <form method="post"> {% csrf_token %}
+    <form method="post"> {% csrf_token %}
         <div>
             {{ban.as_p}}
         </div>
         <div class = "add_recipe_buttons_move">
             <input class="welcome_box_add_recipe" type = "submit" value = "Publish" />
-
-            <a class="welcome_box_add_recipe" href= '{% url "welcome"%}'>Back to Homepage</a>
+            <a href= '{% url "welcome"%}'>Back to Homepage</a>
         </div>
     </form>
 </div>
