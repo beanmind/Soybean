@@ -6,10 +6,10 @@
 
 <h1 class="welcome_name">{{recipe_to_show.title}} , for {{recipe_to_show.number_people}} people  </h1>
 
-    <div class="add_recipe_div">
+    <div id="single_recipe_div">
 
         <p>
-        {{recipe_to_show.description}}
+        {{recipe_to_show.description|linebreaks}}
         </p>
 
 

@@ -8,7 +8,9 @@
 <div class="add_recipe_div" >
     <form method="post"> {% csrf_token %}
         <div>
-            {{ban.as_p}}
+
+        {{ban.as_p}}
+
         </div>
         <div class = "add_recipe_buttons_move">
             <input class="welcome_box_add_recipe" type = "submit" value = "Publish" />

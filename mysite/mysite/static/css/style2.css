@@ -1,5 +1,9 @@
  /** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } body { line-height: 1; } ol, ul { list-style: none; } blockquote, q { quotes: none; } blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; } table { border-collapse: collapse; border-spacing: 0; }
 
+#genericPage {
+    background:url('../logo/welcome4.jpg');
+    background-size: cover;
+ }
 
 /* login page */
 
@@ -9,18 +13,13 @@ html {
 
 #login_email_pass {
     background-color: white;
-    opacity: 0.85;
+    opacity: 0.80;
     padding: 30px;
     font-family: 'Shadows Into Light', cursive;
     max-width: 700px;
     width: 100%;
     margin:5% auto 5% auto;
-    border-radius: 6px;
-}
-
-#loginPage {
-    background:url('../logo/dish_search_ingredients.jpg');
-    background-size: cover;
+    /*border-radius: 6px;*/
 }
 
 #login_name {
@@ -69,68 +68,65 @@ label{
 
 /* welcome Page*/
 
-#welcomePage {
-    background:url('../logo/dish_eggplant.jpg');
-    background-size: cover;
- }
+
 .buttons_move {
 
-    background: #800080;
+    background: #303030;
     margin: 2% auto 2% auto;
     width:200px;
     height: 40px;
     line-height: 40px;
     display: inline-block;
     font-size: 23px;
-    border-radius: 6px;
+   /* border-radius: 6px;*/
 }
 
 
 .buttons_move:hover {
-    background:mediumpurple;
+    background:#585858;
 }
 
 
 .welcome_name {
     background-color: white;
     font-size: 65px;
-    opacity: 0.85;
+    opacity: 0.80;
     padding: 30px;
     font-family: 'Shadows Into Light', cursive;
     max-width: 700px;
     width: 100%;
     margin:5% auto 0 auto;
     text-align: center;
-    border-radius: 6px;
+    /* border-radius: 6px;*/
 }
 
 
 .welcome_single_recipe {
     background-color: white;
     font-size: 23px;
-    opacity: 0.85;
+    opacity: 0.80;
     padding: 30px;
     font-family: 'Shadows Into Light', cursive;
     max-width: 700px;
     width: 100%;
     margin:5% auto 5% auto;
     text-align: center;
-    border-radius: 6px;
+    /* border-radius: 6px;*/
 }
 
 .display_single_recipe {
-    background: #7F525D;
+    background: #7D0541;
     margin: 2% auto 2% auto;
     width:200px;
     height: 130px;
     line-height: 130px;
     display: inline-block;
     font-size: 40px;
-    border-radius: 6px;
+    /* border-radius: 6px;*/
 }
 
 .display_single_recipe:hover {
-    background-color: #7D0541;
+    background-color:#7F525D ;
 }
 
 .welcome_box {
@@ -140,21 +136,19 @@ label{
 
 /* Add recipe */
 
-#newrecipe {
-    background:url('../logo/dish_asperges.jpg');
-    background-size: cover;
-}
+
+
 .add_recipe_div {
     background-color: white;
     font-size: 23px;
-    opacity: 0.85;
+    opacity: 0.80;
     padding: 30px;
     font-family: 'Shadows Into Light', cursive;
     max-width: 700px;
     width: 100%;
     height: 550px;
     margin:5% auto 5% auto;
-    border-radius: 6px;
+    /* border-radius: 6px;*/
 
 }
 
@@ -182,99 +176,77 @@ form p{
     margin: auto 10% auto 25%;
 }
 
-#create_account_button, {
-    font-family: 'Shadows Into Light', cursive;
-    background-color:#347235;
-    color:white;
-    font-size: 23px;
-    width: 200px;
-}
-
 
 
 .welcome_box_add_recipe {
     text-decoration: none;
     color: white;
-    background: #800080;
-    border:0px;
+    background:#303030;
+    border:0;
     width:200px;
     height: 40px;
     line-height: 40px;
     display: inline-block;
     font-size: 23px;
-    border-radius: 6px;
+    /* border-radius: 6px;*/
     font-family: 'Shadows Into Light', cursive;
     text-align: center;
     margin: 0;
     padding: 0;
-    display: inline-block;
 
 }
 
 .welcome_box_add_recipe:hover{
-    background-color: mediumpurple;
-}
-/* single recipe*/
-
-#singleRecipePage {
-    background:url('../logo/dish_artichot.jpg');
-    background-size: cover;
+    background-color: #585858;
 }
 
 
 /* register */
 
-
-
-#UserProfilePage {
-    background: url('../logo/dish-spices2.jpg');
-    background-size: cover;
-}
-
 .add_recipe_div,{
     background-color: white;
     font-size: 23px;
-    opacity: 0.85;
+    opacity: 0.80;
     padding: 30px;
     font-family: 'Shadows Into Light', cursive;
     max-width: 700px;
     width: 100%;
     height: 300px;
     margin: 5% auto 0 auto;
-    border-radius: 6px;
+    /* border-radius: 6px;*/
 }
 
 /*searching for ingredients */
 
 #Ingr_Search_Page  {
-  background:url('../logo/dish_search_ingredients.jpg');
+    background:url('../logo/dish_search_ingredients.jpg');
     background-size: cover;
  }
 
 #recipe_diplayed {
     background-color: white;
     font-size: 23px;
-    opacity: 0.85;
+    opacity: 0.80;
     padding: 30px;
     font-family: 'Shadows Into Light', cursive;
     max-width: 700px;
     width: 100%;
     margin:5% auto 0 auto;
     text-align: center;
-    border-radius: 6px;
+    /* border-radius: 6px;*/
 }
 
 .ingredients_div {
     background-color: white;
     font-size: 23px;
-    opacity: 0.85;
+    opacity: 0.80;
     padding: 30px;
     font-family: 'Shadows Into Light', cursive;
     max-width: 700px;
     width: 100%;
     height: 300px;
     margin:5% auto 5% auto;
-    border-radius: 6px;
+    /* border-radius: 6px;*/
 }
 
 .label_ingredients{
@@ -284,17 +256,27 @@ form p{
     font-size: 23px;
     margin: 0 0 20px 0;
 }
+
+/* single recipe display */
+
+#single_recipe_div {
+    background-color: white;
+    font-size: 23px;
+    opacity: 0.80;
+    padding: 30px;
+    font-family: 'Shadows Into Light', cursive;
+    max-width: 700px;
+    width: 100%;
+    margin: 5% auto 5% auto;
+}
+
 /* logout page */
 
-#logoutPage {
-    background:url('../logo/dish_search_ingredients.jpg');
-    background-size: cover;
-}
 
 #logout_div{
     background-color: white;
     font-size: 23px;
-    opacity: 0.85;
+    opacity: 0.80;
     padding: 30px;
     font-family: 'Shadows Into Light', cursive;
     max-width: 700px;
@@ -304,4 +286,10 @@ form p{
     border-radius: 6px;
     text-align: center;
 
+}
+
+#copyrights{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 23px;
+    color:white;
 }
